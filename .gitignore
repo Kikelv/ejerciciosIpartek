@@ -1,3 +1,6 @@
+#carpetas y ficheros que ignoramos de eclipse
+
+
 /bin/
 .classpath
 .project
