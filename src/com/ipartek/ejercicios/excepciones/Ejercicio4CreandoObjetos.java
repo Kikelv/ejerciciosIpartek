@@ -29,7 +29,7 @@ public class Ejercicio4CreandoObjetos {
 
 		Persona persona1 = new Persona();
 		persona1.setNombre("Ramona");
-		persona1.setEdad(edad);
+		// persona1.setEdad(edad);
 
 		/**
 		 * Persona persona2 = new Persona(); persona2.setNombre("Jesus");
@@ -41,7 +41,8 @@ public class Ejercicio4CreandoObjetos {
 		System.out.printf("%s tiene %s años \n", persona1.getNombre(), persona1.getEdad());
 		// System.out.printf("%s tiene %s años \n", persona2.getNombre(),
 		// persona2.getEdad());
-
+		System.out.println(persona1); // EN LA CLASE PERSONA HE HECHO EL .TOSTRING(), MENU -> SOURCE
+// TODO ACABAR ESTO
 	}
 
 }
