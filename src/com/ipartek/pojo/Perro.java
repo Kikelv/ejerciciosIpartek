@@ -81,4 +81,10 @@ public class Perro {
 	public void setHistoria(String historia) {
 		this.historia = historia;
 	}
+
+	@Override
+	public String toString() {
+		return nombre + " es un " + raza + " y pesa " + peso + " kilos.";
+	}
+
 }
