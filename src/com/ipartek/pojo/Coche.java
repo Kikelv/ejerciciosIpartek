@@ -80,8 +80,7 @@ public class Coche {
 
 	@Override
 	public String toString() {
-		return "Coche [marca=" + marca + ", modelo=" + modelo + ", precio=" + precio + ", isVendido=" + isVendido
-				+ ", estado=" + estado + "]";
+		return marca + " " + modelo + "|" + precio + "€" + "|" + isVendido;
 	}
 
 }

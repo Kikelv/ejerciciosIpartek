@@ -29,6 +29,9 @@ public class Concesionario {
 	static Scanner sc = null;
 	static ArrayList<Coche> coches = new ArrayList<Coche>();
 	static String opcion = ""; // opcion seleccionada en el menu por el usuario
+	private static final String OPCION_VER = "1";
+	private static final String OPCION_INSERTAR = "2";
+	private static final String OPCION_SALIR = "s";
 
 	public static void main(String[] args) {
 
@@ -39,7 +42,11 @@ public class Concesionario {
 		incializarDatos();
 		menuPrincipal();
 
-		opciones();
+		do {
+
+			opciones();
+
+		} while (!OPCION_SALIR.equals(opcion));
 
 		System.out.println("-------------------------------------");
 		System.out.println("<<<< CIERRE APP  CONCESIONARIO   >>>>");
@@ -47,35 +54,60 @@ public class Concesionario {
 
 	}// Main
 
+	// \/\/ MÉTODOS \/\/
+
 	private static void incializarDatos() {
 		coches.add(new Coche("Ford", "Fiesta", 8000));
 		coches.add(new Coche("Kia", "Ceed", 15000));
 		coches.add(new Coche("Opel", "Astra", 16000));
 		coches.add(new Coche("Audi", "A4", 25000));
-
 	}
 
 	private static void opciones() {
+
 		switch (opcion) {
-		case "1": // MOSTRAR LOS COCHES DISPONIBLES
+
+		case OPCION_VER: // MOSTRAR LOS COCHES DISPONIBLES
+			System.out.println("");
+			System.out.println("STOCK DE COCHES DISPONIBLES:\n");
+			for (Coche c : coches) {
+				System.out.println("");
+				System.out.println(c);
+			}
+			System.out.println("\n");
+			menuPrincipal();
+			System.out.println("");
+			break;
+
+		case OPCION_INSERTAR: // AÑADIR UN NUEVO COCHE
+			System.out.println("AÑADIR");
+			nuevoCoche();
+			System.out.println("");
+			System.out.println("\\\\/\\\\/ SE HA AÑADIDO TU COCHE AL STOCK \\\\/\\\\/");
+			System.out.println("");
 
 			for (Coche c : coches) {
 				System.out.println(c);
 			}
+			System.out.println("");
+			menuPrincipal();
 			break;
-		case "2": // AÑADIR UN NUEVO COCHE
-			nuevoPerro();
-			System.out.println("AÑADIR");
-
-			break;
+		/*
+		 * case OPCION_SALIR: // SALIR DE LA APP
+		 * 
+		 * System.out.println("Vuelve pronto"); break;
+		 */
 		default:
-			System.out.println("el break");
+			System.out.println("");
+			System.out.println("** Escribe una opción del menú, por favor. **\n");
+			// menuPrincipal();
+			opcion = sc.nextLine();
 			break;
 		}
 
 	}
 
-	private static void nuevoPerro() {
+	private static void nuevoCoche() {
 
 		System.out.println("Escribe la marca del coche");
 		String marca = sc.nextLine();
