@@ -1,6 +1,6 @@
 package com.ipartek.pojo;
 
-public class Utilidades {
+public class UtilidadesActividades {
 
 	static final char LETRAS_DNI[] = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S',
 			'Q', 'V', 'H', 'L', 'C', 'K', 'E' };
@@ -34,4 +34,5 @@ public class Utilidades {
 
 		return numeros + letra;
 	}
+
 }
