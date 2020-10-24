@@ -1,0 +1,5 @@
+Scanner sc = new Scanner(System.in);       // APERTURA SCANNER
+variable = sc.nextInt();				   // RECOGE DATOS DEL USUARIO
+sc.close();								   // CIERRE SCANNER
+
+
