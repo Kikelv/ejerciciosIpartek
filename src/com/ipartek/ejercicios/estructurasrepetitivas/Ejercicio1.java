@@ -37,6 +37,7 @@ public class Ejercicio1 {
 		for (int i = 0; i < 11; i++) {
 			resultado = i * numero;
 			System.out.println(i + " X " + numero + " = " + resultado);
+			System.out.println("** FIN **");
 		}
 		sc.close();
 	}
