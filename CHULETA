@@ -1,5 +1,18 @@
-Scanner sc = new Scanner(System.in);       // APERTURA SCANNER
-variable = sc.nextInt();				   // RECOGE DATOS DEL USUARIO
-sc.close();								   // CIERRE SCANNER
 
 
+** SCANNER
+Scanner sc = new Scanner(System.in);                                               // APERTURA SCANNER
+String datos = sc.nextLine();	Int datos = sc.nextInt();					      // RECOGE DATOS DEL USUARIO
+sc.close();						                                                 // CIERRE SCANNER
+
+
+** TRY & CATCH
+try {
+	datos = sc.nextInt(); 									       // IMPORTANTE! RECOGER LOS DATOS DENTRO DEL TRY
+	int resul = datos * datos;
+	System.out.println("El resultado es: " + resul + "cm2\n");
+
+} catch (Exception e) {												// EXCEPCIÓN GENÉRICA
+	System.out.println("¡Cuidado! Solo puedes insertar números. ");
+	sc.next();
+}

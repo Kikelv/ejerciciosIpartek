@@ -15,9 +15,10 @@ import java.util.Scanner;
  */
 public class Ejercicio1 {
 
+	static private final int TABLA_6 = 6;
+
 	public static void main(String[] args) {
 
-		final int TABLA_6 = 6;
 		int numero;
 		int resultado = 0;
 
