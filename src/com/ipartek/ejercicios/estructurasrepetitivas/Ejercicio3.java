@@ -56,6 +56,7 @@ public class Ejercicio3 {
 				}
 
 				continuar();
+
 				break;
 			case OPCION_AREA_TRIANGULO:
 				// System.out.println("Calcular área del cuadrado, inserta la medida en
@@ -65,7 +66,8 @@ public class Ejercicio3 {
 				do {
 					try {
 						datos = sc.nextInt();
-
+						int areaTriangulo = datos;
+						System.out.println("El resultado es: " + areaTriangulo + "cm2\n");
 					} catch (InputMismatchException ime) {
 						System.out.println("¡Cuidado! Solo puedes insertar números. ");
 						sc.next();
@@ -100,6 +102,7 @@ public class Ejercicio3 {
 			System.out.println("** FIN **");
 			salir = true;
 		}
+		sc.close();
 	}
 
 }

@@ -1,12 +1,32 @@
+** GLOSARIO
 
+Clase: Modelo donde se redactan las características comunes de un grupo de objetos.
+
+Atributos: Características comunes a todos los objetos de una misma clase.
+
+Objetos: Ejemplares pertenecientes a una clase.
+
+Constructor: El método constructor es un método que podemos considerar como especial, ya tendrá siempre el mismo nombre que la clase y además será donde le daremos valores iniciales a cada una de las propiedades de esa clase.
+
+Modularización: Crear un proyecto en base a varias clases.
+
+Encapsular: Definir los atributos de una clase como privados, es decir, se podrá variar solo dentro de su clase.
+
+Métodos: nos permitirán que nuestras clases interactúen entre sí para poder formar una unidad.
+
+
+-----------------------------------------------------------------------------------------------------------
 
 ** SCANNER
+
 Scanner sc = new Scanner(System.in);                                               // APERTURA SCANNER
 String datos = sc.nextLine();	Int datos = sc.nextInt();					      // RECOGE DATOS DEL USUARIO
 sc.close();						                                                 // CIERRE SCANNER
 
+------------------------------------------------------------------------------------------------------------
 
 ** TRY & CATCH
+
 try {
 	datos = sc.nextInt(); 									       // IMPORTANTE! RECOGER LOS DATOS DENTRO DEL TRY
 	int resul = datos * datos;
@@ -16,3 +36,32 @@ try {
 	System.out.println("¡Cuidado! Solo puedes insertar números. ");
 	sc.next();
 }
+
+ >> EJEMPLO: Si a un array de 4 posiciones intentamos meter más.
+
+public static void main(String[] args) {
+        int nums[]=new int[4];
+        try {
+        	System.out.println("Antes de que se genere la excepción.");
+            	//generar una excepción de índice fuera de límites
+            	nums[7]=10;
+        }catch (ArrayIndexOutOfBoundsException exc){
+           	//Capturando la excepción
+            	System.out.println("Índice fuera de los límites!");
+        }finally {
+	System.out.println("Despues de la excepcion");
+        }
+        
+>> Ejemplo de lanzado de excepción genérica.
+
+public void pruebaThrow() throws Exception {
+ Exception exception = new Exception();
+ int a = 98;
+ int b = 101;
+ 
+ if (a > 100 || b > 100) {
+  	throw exception;
+      }
+ }
+  
+-------------------------------------------------------------------------------------------------------------------
