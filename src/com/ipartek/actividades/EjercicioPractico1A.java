@@ -24,25 +24,21 @@ public class EjercicioPractico1A {
 		notas.add((double) 8.5);
 		notas.add((double) 9);
 		notas.add((double) 6);
-		notas.add((double) 9);
+		notas.add((double) 9.5);
 
 		// Declaro las variables que usaré
 		double suma = 0;
 		double media = 0;
-		double max = (double) 10;
+		double max = (double) 0;
 		double min = (double) 10;
 
 		System.out.println("");
 		System.out.println("Las notas de la clase son las siguintes: " + notas + "\n"); // Las muestro en la consola
 
-		for (int i = 0; i < notas.size(); i++) { // En este bucle calculo la suma y con la suma saco la media.
+		for (int i = 0; i < notas.size(); i++) { // En este bucle calculo la suma y con la suma saco la media
+													// ** CORRIJO PARA METER LAS MÁXIMAS Y MÍNIMAS EN EL MISMO BUCLE.
 			suma += notas.get(i);
 			media = suma / notas.size();
-		}
-
-		System.out.println("La nota media es: " + media + "\n");
-
-		for (int i = 0; i < notas.size(); i++) { // En este bucle recorro el arraylist para sacar el máximo y el mínimo
 			if (notas.get(i) > max) {
 				max = notas.get(i);
 			}
@@ -50,6 +46,9 @@ public class EjercicioPractico1A {
 				min = notas.get(i);
 			}
 		}
+
+		System.out.println("La nota media es: " + media + "\n");
+
 		System.out.println("La nota mínima es: " + min);
 		System.out.println("La nota máxima es: " + max);
 

@@ -25,7 +25,8 @@ public class EjercicioPractico1B {
 
 	static String opcion = ""; // opcion seleccionada en el menu por el usuario
 	static double centimetros = 0;
-	static double pulgadas = centimetros / 2.54; // Cálculo de pulgadas;
+	static final private double CONVERSOR = 2.54; // ** CORRIJO Y PASO ESTE NÚMERO A CONSTANTE
+	static double pulgadas = centimetros / CONVERSOR; // Cálculo de pulgadas;
 	static final private String OPCION_DNI = "1";
 	static final private String OPCION_PULGADAS = "2";
 	static final private String OPCION_SALIR = "3";
@@ -71,7 +72,7 @@ public class EjercicioPractico1B {
 			System.out.println("");
 
 			centimetros = sc.nextDouble();
-			System.err.println(centimetros + "cm equivalen a " + centimetros / 2.53 + " pulgadas\n");
+			System.err.println(centimetros + "cm equivalen a " + pulgadas + " pulgadas\n");
 
 			opcion = sc.nextLine();
 			menuPrincipal();
