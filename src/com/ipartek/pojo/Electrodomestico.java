@@ -2,13 +2,19 @@ package com.ipartek.pojo;
 
 public class Electrodomestico {
 
-	private String nombre;
-	private float precio;
+	protected String nombre;
+	protected float precio;
 
 	public Electrodomestico() {
 		super();
 		this.nombre = ("");
 		this.precio = (0f);
+	}
+
+	public Electrodomestico(String nombre, float precio) {
+		this();
+		this.nombre = (nombre);
+		this.precio = (precio);
 	}
 
 	public String getNombre() {

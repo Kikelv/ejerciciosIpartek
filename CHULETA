@@ -81,3 +81,25 @@ public void pruebaThrow() throws Exception {
  }
   
 -------------------------------------------------------------------------------------------------------------------
+
+** CALIFICADORES
+
+Modificadores de acceso
+
+	           La misma clase	Otra clase del mismo paquete	Subclase de otro paquete	Otra clase de otro paquete
+	           
+public	             X						X								X							X
+protected			 X						X								X	
+default				 X						X		
+private				 X			
+
+-------------------------------------------------------------------------------------------------------------------
+
+** CASTEAR, CASTEO
+
+Definición:
+      El casteo (casting) es un procedimiento para transformar una variable primitiva de un tipo a otro, 
+      o transformar un objeto de una clase a otra clase siempre y cuando haya una relación de herencia  entre ambas.
+      Existen distintos tipos de casteo (casting) de acuerdo a si se utilizan tipos de datos o clases.
+      
+-------------------------------------------------------------------------------------------------------------------

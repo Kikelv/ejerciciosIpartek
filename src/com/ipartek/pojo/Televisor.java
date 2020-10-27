@@ -18,6 +18,12 @@ public class Televisor extends Electrodomestico {
 		this.pulgadas = pulgadas;
 	}
 
+	public Televisor(String nombre, float precio, int pulgadas) {
+		super(nombre, precio);
+
+		this.pulgadas = pulgadas;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString() + " Televisor [pulgadas=" + pulgadas + "]";

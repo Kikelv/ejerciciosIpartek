@@ -2,7 +2,7 @@ package com.ipartek.pojo;
 
 public class TelePlana extends Televisor {
 
-	protected String pantalla;
+	private String pantalla;
 
 	public TelePlana() {
 		super();
@@ -14,6 +14,12 @@ public class TelePlana extends Televisor {
 	}
 
 	public void setPantalla(String pantalla) {
+		this.pantalla = pantalla;
+	}
+
+	public TelePlana(String nombre, float precio, int pulgadas, String pantalla) {
+		super(nombre, precio, pulgadas);
+
 		this.pantalla = pantalla;
 	}
 

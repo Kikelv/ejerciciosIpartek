@@ -39,24 +39,20 @@ public class Ejercicio1 {
 
 		System.out.println("Introduce la marca, el precio, las pulgadas y el tipo de pantalla: ");
 		Scanner sc = new Scanner(System.in);
-
-		for (int i = 0; i < 3; i++) { // Bucle para crear 3 objetos de TelePlana
-
-			String nombre = sc.nextLine();
-			float precio = Integer.parseInt(sc.nextLine());
-			int pulgadas = Integer.parseInt(sc.nextLine());
-			String pantalla = sc.nextLine();
-
-			TelePlana tv = new TelePlana(); // Creamos objeto con clase TelePlana
-			tv.setNombre(nombre);
-			tv.setPrecio(precio);
-			tv.setPulgadas(pulgadas);
-			tv.setPantalla(pantalla);
-			lista.add(tv);
-			System.out.println("Añadida la " + nombre);
-
-		}
-
+		/*
+		 * for (int i = 0; i < 3; i++) { // Bucle para crear 3 objetos de TelePlana
+		 * 
+		 * String nombre = sc.nextLine(); float precio =
+		 * Integer.parseInt(sc.nextLine()); int pulgadas =
+		 * Integer.parseInt(sc.nextLine()); String pantalla = sc.nextLine();
+		 * 
+		 * TelePlana tv = new TelePlana(); // Creamos objeto con clase TelePlana
+		 * tv.setNombre(nombre); tv.setPrecio(precio); tv.setPulgadas(pulgadas);
+		 * tv.setPantalla(pantalla); lista.add(tv); System.out.println("Añadida la " +
+		 * nombre);
+		 * 
+		 * }
+		 */
 		Electrodomestico elec1 = new Electrodomestico(); // Como este objeto es una lavadoralo creamos con clase
 															// Electrodomestico, que es el padre
 		elec1.setNombre("Lavadora BALAY");
@@ -69,8 +65,20 @@ public class Ejercicio1 {
 		tele.setPulgadas(30);
 		lista.add(tele);
 
+		// CONSTRUCTORES SOBRECARGADOS:
+
+		lista.add(new Electrodomestico("Horno AEG", 200));
+
+		lista.add(new Televisor("Sony", 150, 42));
+
+		lista.add(new TelePlana("Samsung", 75, 32, "plasma"));
+
+		// TODO CASTEAR Y USAR instanceof
 		for (Electrodomestico electrodomestico : lista) {
 			System.out.println(electrodomestico.toString());
+
+			System.out.printf("** electrodomestico \n" + electrodomestico);
+
 		}
 
 		System.out.println("** FIN");
