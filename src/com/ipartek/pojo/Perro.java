@@ -1,6 +1,6 @@
 package com.ipartek.pojo;
 
-public class Perro {
+public class Perro extends Mamifero {
 
 	// Atributos, deben ser siempre privados
 	// la forma de manipular estos atributos es a traves de los getteres y settres
@@ -14,8 +14,7 @@ public class Perro {
 	// Constructor
 	///////////////////////////////////////
 	public Perro() {
-		super();
-		this.nombre = "Sin nombre";
+		super("Sin nombre");
 		this.raza = "Cruce";
 		this.peso = 0f;
 		this.isVacunado = false;
