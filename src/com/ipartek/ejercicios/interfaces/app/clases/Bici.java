@@ -30,6 +30,7 @@ public class Bici implements Vehiculo {
 		if (decrementoVel >= velocidadActual) {
 			velocidadActual = 0;
 			estado = "parada";
+			velocidadActual = 0;
 		} else {
 			velocidadActual = velocidadActual - decrementoVel;
 		}

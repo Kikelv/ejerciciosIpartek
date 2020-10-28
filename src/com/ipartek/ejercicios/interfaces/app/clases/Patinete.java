@@ -40,6 +40,7 @@ public class Patinete implements Vehiculo {
 		if (estaArrancado) {
 			estaArrancado = false;
 			estado = "parado";
+			velocidadActual = 0;
 		}
 
 	}

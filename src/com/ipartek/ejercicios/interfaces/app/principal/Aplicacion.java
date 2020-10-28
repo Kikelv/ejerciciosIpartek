@@ -20,8 +20,8 @@ public class Aplicacion {
 		Patinete p = new Patinete();
 		p.arrancar();
 		p.acelerar(1000);
-		p.frenar(80);
-		// p.apagar();
+		// p.frenar(80);
+		p.apagar();
 		System.out.println(p.toString());
 
 		Bici b = new Bici();
