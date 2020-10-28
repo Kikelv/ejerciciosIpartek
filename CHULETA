@@ -1,3 +1,4 @@
+
 ** GLOSARIO
 
 Clase: Modelo donde se redactan las características comunes de un grupo de objetos.
@@ -104,6 +105,12 @@ Definición:
       Existen distintos tipos de casteo (casting) de acuerdo a si se utilizan tipos de datos o clases.
       
 -------------------------------------------------------------------------------------------------------------------
+
+** COLLECTIONS (https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html)
+
+Collections.shuffle(lista) - desordenar un array
+Collections.sort(lista) - sordenar un array
+
 -------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------
