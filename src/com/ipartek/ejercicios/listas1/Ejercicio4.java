@@ -46,9 +46,9 @@ public class Ejercicio4 {
 				baraja.add(carta);
 			}
 		}
-		System.out.println("-------");
-		System.out.println("-------");
-		System.out.println("-------");
+		System.out.println("---------");
+		System.out.println("---------");
+		System.out.println("---------");
 
 		/*
 		 * ORDENADAS POR NÚMEROS
