@@ -37,8 +37,10 @@ public class Ejercicio1 {
 																// sean teles, lavadoras, neveras etc. Electrodomestico
 																// es la clase padre
 
-		System.out.println("Introduce la marca, el precio, las pulgadas y el tipo de pantalla: ");
+		System.out.println("Introduce la marca, el precio, las pulgadas y el tipo de pantalla: \n");
 		Scanner sc = new Scanner(System.in);
+
+		// COMENTO ESTE BUCLE PARA NO TENER QUE METER DATOS AL HACER LAS PRUEBAS
 		/*
 		 * for (int i = 0; i < 3; i++) { // Bucle para crear 3 objetos de TelePlana
 		 * 
@@ -75,9 +77,10 @@ public class Ejercicio1 {
 
 		// TODO CASTEAR Y USAR instanceof
 		for (Electrodomestico electrodomestico : lista) {
+
 			System.out.println(electrodomestico.toString());
 
-			System.out.printf("** electrodomestico \n" + electrodomestico);
+			// System.out.printf("** electrodomestico \n" + electrodomestico);
 
 		}
 

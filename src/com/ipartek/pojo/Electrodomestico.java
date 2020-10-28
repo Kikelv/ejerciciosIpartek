@@ -35,7 +35,7 @@ public class Electrodomestico {
 
 	@Override
 	public String toString() {
-		return "Electrodomestico [nombre=" + nombre + ", precio=" + precio + "]";
+		return "Electrodomestico: \n" + "Tipo: " + nombre + "\n" + "PVP: " + precio;
 	}
 
 }

@@ -25,7 +25,9 @@ public class TelePlana extends Televisor {
 
 	@Override
 	public String toString() {
-		return super.toString() + " TelePlana [pantalla=" + pantalla + "]";
+		return "Televisión plana: \nPantalla: " + getPantalla() + "\n" + "Pulgadas: " + getPulgadas() + "\n" + "Marca: "
+				+ getNombre() + "\n" + "PVP: " + getPrecio() + " €";
+
 	}
 
 }
