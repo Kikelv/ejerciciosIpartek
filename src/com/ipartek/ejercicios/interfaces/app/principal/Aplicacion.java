@@ -1,6 +1,5 @@
 package com.ipartek.ejercicios.interfaces.app.principal;
 
-import com.ipartek.ejercicios.interfaces.app.clases.Bici;
 import com.ipartek.ejercicios.interfaces.app.clases.Patinete;
 
 /**
@@ -18,18 +17,19 @@ public class Aplicacion {
 	public static void main(String[] args) {
 
 		Patinete p = new Patinete();
+
+		// p.apagar();
+
 		p.arrancar();
-		p.acelerar(1000);
-		// p.frenar(80);
+		p.acelerar(10000);
+		p.frenar(79);
 		p.apagar();
 		System.out.println(p.toString());
 
-		Bici b = new Bici();
-		b.arrancar();
-		b.acelerar(500);
-		b.frenar(10);
-		// b.apagar();
-		System.out.println(b.toString());
+		/*
+		 * Bici b = new Bici(); b.arrancar(); b.acelerar(500); b.frenar(10); //
+		 * b.apagar(); System.out.println(b.toString());
+		 */
 
 	}
 

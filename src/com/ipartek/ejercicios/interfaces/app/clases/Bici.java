@@ -8,6 +8,16 @@ public class Bici implements Vehiculo {
 	protected static boolean estaArrancado = false;
 	String estado = "";
 	String parado = "";
+	int decrementoVel;
+	int incrementoVel;
+
+	public Bici() {
+		super();
+		this.arrancar();
+		this.apagar();
+		this.frenar(decrementoVel);
+		this.acelerar(incrementoVel);
+	}
 
 	public void arrancar() {
 		estaArrancado = true;

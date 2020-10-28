@@ -8,19 +8,34 @@ public class Patinete implements Vehiculo {
 	protected static boolean estaArrancado = false;
 	String estado = "";
 	String parado = "";
+	int decrementoVel;
+	int incrementoVel;
+	int velocidad;
 
+	/*
+	 * public Patinete() { super(); this.arrancar(); this.apagar();
+	 * this.frenar(decrementoVel); this.acelerar(incrementoVel); }
+	 */
 	public void arrancar() {
-		estaArrancado = true;
-		estado = "en marcha";
+		if (estaArrancado || velocidadActual > 0) {
+			System.out.println("** YA ESTABA ARRANCADO");
+		} else {
+			System.out.println("** ON");
+			estaArrancado = true;
+			estado = "en marcha";
+		}
 	}
 
 	@Override
 	public void acelerar(int incrementoVel) {
-		if (incrementoVel > VEL_MAX_PATINETE) {
-			velocidadActual = VEL_MAX_PATINETE;
-		} else {
 
-			velocidadActual = velocidadActual + incrementoVel;
+		velocidadActual += incrementoVel;
+
+		if (velocidadActual > VEL_MAX_PATINETE) {
+			velocidadActual = VEL_MAX_PATINETE;
+			velocidad = VEL_MAX_PATINETE;
+		} else {
+			velocidad = velocidadActual;
 		}
 
 	}
@@ -28,26 +43,33 @@ public class Patinete implements Vehiculo {
 	@Override
 	public void frenar(int decrementoVel) {
 		if (decrementoVel >= velocidadActual) {
-			velocidadActual = 0;
+			velocidad = 0;
 			estado = "parado";
+
 		} else {
-			velocidadActual = velocidadActual - decrementoVel;
+			velocidad = velocidadActual - decrementoVel;
 		}
 	}
 
 	@Override
 	public void apagar() {
-		if (estaArrancado) {
+		if (velocidad == 0) {
 			estaArrancado = false;
 			estado = "parado";
 			velocidadActual = 0;
+			System.out.println(" ** OFF");
+		}
+		if (velocidad > 0) {
+			System.out.println(" ** No se puede apagar estando en marcha \n");
+
 		}
 
 	}
 
 	@Override
 	public String toString() {
-		return "“Soy un patinete, estoy " + estado + " y mi velocidad es de " + velocidadActual + " Km/h";
+
+		return "“Soy un patinete, estoy " + estado + " y mi velocidad es de " + velocidad + " Km/h";
 	}
 // TODO crear lo mismo para bici y coche
 }
