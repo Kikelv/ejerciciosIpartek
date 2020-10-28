@@ -11,6 +11,12 @@ public class Carta {
 		this.palo = palo;
 	}
 
+	public Carta(int num, String palo) {
+		super();
+		this.num = num;
+		this.palo = palo;
+	}
+
 	public int getNum() {
 		return num;
 	}
