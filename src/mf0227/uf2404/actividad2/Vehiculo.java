@@ -34,13 +34,13 @@ public class Vehiculo implements IConducible {
 
 	@Override
 	public void arrancar() {
-		// TODO Auto-generated method stub
+		System.out.println("brummmm");
 
 	}
 
 	@Override
 	public void parar() {
-		// TODO Auto-generated method stub
+		System.out.println("OFF");
 
 	}
 

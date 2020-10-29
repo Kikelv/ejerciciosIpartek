@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ * <h1>Actividad 2 del 29 de octubre</h1>
  * <p>
  * Realizar un programa que nos cree una lista de coches, para ello deberá
  * almacenarse dentro de esta lista los objetos de tipo coche que crearemos La
@@ -16,29 +17,31 @@ import java.util.Scanner;
  * Una vez que no queramos introducir más coches, nos mostrara todo el contenido
  * en pantalla Realizar el ejercicio en base a las reglas de programación
  * orientada a objetos.
+ * </p>
  * 
  * <h2>EXTRAS:</h2>
  * <ul>
- * <li>Definir una interfaz IConducible con los métodos arrancar y parar</li>
+ * <li>Definir una interfaz <i>IConducible</i> con los métodos arrancar y
+ * parar</li>
  * <li>Crear clase Vehiculo <b>( color, matricula )</b> para el Coche <b>(
  * marca, modelo, potencia, cilindrada)</b></li>
  * <li>Realizar un Diagrama de Clases</li>
  * </ul>
- * </p>
+ * 
  * 
  * @author Enrique Laorden
  * @version 1
  */
 public class Ejercicio {
 
-	static ArrayList<Coche> lista = new ArrayList<Coche>(); // arrayList con el listado de coches
-	static Scanner sc = new Scanner(System.in);
-	static String marca = "";
-	static String modelo = "";
-	static String color = "";
-	static String matricula = "";
-	static int potencia = 0;
-	static int cilindrada = 0;
+	private static ArrayList<Coche> lista = new ArrayList<Coche>(); // arrayList con el listado de coches
+	private static Scanner sc = new Scanner(System.in);
+	private static String marca = "";
+	private static String modelo = "";
+	private static String color = "";
+	private static String matricula = "";
+	private static int potencia = 0;
+	private static int cilindrada = 0;
 
 	public static void main(String[] args) {
 
@@ -49,7 +52,7 @@ public class Ejercicio {
 		menu(); // Llamada al menú donde se piden los datos hasta que el usuario decide salir.
 
 		pintarArrayList(); // Llamada al método para mostrar el listado completo de coches.
-	}
+	} // MAIN
 
 	private static void pintarArrayList() {
 		System.out.println("\nListado de coches registrados:\n");
@@ -73,6 +76,7 @@ public class Ejercicio {
 			System.out.println("-> Registra la matrícula: ");
 			matricula = sc.nextLine();
 			System.out.println("-> Potencia del " + modelo);
+
 			try {
 				potencia = Integer.parseInt(sc.nextLine());
 
@@ -81,7 +85,7 @@ public class Ejercicio {
 				// potencia = Integer.parseInt(sc.nextLine());
 			}
 
-			System.out.println("Cilindrada del " + modelo);
+			System.out.println("-> Cilindrada del " + modelo);
 			try {
 				cilindrada = Integer.parseInt(sc.nextLine());
 
@@ -92,12 +96,12 @@ public class Ejercicio {
 
 			Coche c = new Coche(); // creación de los coches con sus atributos
 
-			c.marca = marca;
-			c.modelo = modelo;
-			c.color = color;
-			c.matricula = matricula;
-			c.potencia = potencia;
-			c.cilindrada = cilindrada;
+			c.setMarca(marca);
+			c.setModelo(modelo);
+			c.setColor(color);
+			c.setMatricula(matricula);
+			c.setPotencia(potencia);
+			c.setCilindrada(cilindrada);
 
 			lista.add(c); // introducción a la lista
 
@@ -105,13 +109,13 @@ public class Ejercicio {
 																						// salir pulsando S
 
 			String sal = sc.nextLine();
-			if (sal.equalsIgnoreCase("s")) {
+			if (sal.equalsIgnoreCase("s")) { // Con ingore case para que no tenga en cuanta mayúsculas o minúsculas
 				salir = true;
 			}
 
 		} while (!salir); // El bucle seguirá hasta que el usuario cambie la opción salir, que es una
 							// booleana
-		System.out.println(" ** APP CERRADA **");
-	}
+		System.out.println("\n ** APP CERRADA **");
+	} // MENU
 
-}
+}// CLASE

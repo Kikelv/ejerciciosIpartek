@@ -2,11 +2,11 @@ package mf0227.uf2404.actividad2;
 
 public class Coche extends Vehiculo {
 
-	// ATRIBUTOS
-	protected String marca;
-	protected String modelo;
-	protected int potencia;
-	protected int cilindrada;
+	// ATRIBUTOS (EN PRIVATE PARA QUE SE ACCEDA POR GETTER Y SETTERS)
+	private String marca;
+	private String modelo;
+	private int potencia;
+	private int cilindrada;
 
 	// CONSTRUCTOR DEL COCHE
 	public Coche() {
@@ -52,12 +52,12 @@ public class Coche extends Vehiculo {
 		this.cilindrada = cilindrada;
 	}
 
-	// MOSTRADO DE DATOS EN CONSOLA
 	@Override
 	public String toString() {
-		return "Coche \n" + marca + " " + modelo + " / " + cilindrada + "cc / " + potencia + " cv\n" + "Color " + color
-				+ ", matrícula " + matricula + "\n";
-
+		return "Coche \n" + getMarca() + " " + getModelo() + " / " + getCilindrada() + "cc / " + getPotencia() + " cv\n"
+				+ "Color " + getColor() + ", matrícula " + getMatricula() + "\n";
 	}
+
+	// MOSTRADO DE DATOS EN CONSOLA
 
 }
