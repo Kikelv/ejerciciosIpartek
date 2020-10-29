@@ -55,12 +55,12 @@ public class Patinete implements Vehiculo {
 	public void apagar() {
 		if (velocidad == 0) {
 			estaArrancado = false;
-			estado = "parado";
+			estado = "apagado";
 			velocidadActual = 0;
 			System.out.println(" ** OFF");
 		}
 		if (velocidad > 0) {
-			System.out.println(" ** No se puede apagar estando en marcha \n");
+			System.out.println(" ** No se puede apagar estando en movimiento \n");
 
 		}
 

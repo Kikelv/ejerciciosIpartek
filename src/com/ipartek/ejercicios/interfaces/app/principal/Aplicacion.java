@@ -22,7 +22,7 @@ public class Aplicacion {
 
 		p.arrancar();
 		p.acelerar(10000);
-		p.frenar(79);
+		p.frenar(80);
 		p.apagar();
 		System.out.println(p.toString());
 
