@@ -7,18 +7,18 @@ import com.ipartek.pojo.Perro;
 public class PerroDAOArrayList implements PerroDao {
 
 	private ArrayList<Perro> lista = new ArrayList<Perro>();
-	
+
 	@Override
 	public ArrayList<Perro> listar() {
-		
-		if ( lista != null && lista.isEmpty() ) {
-			
+
+		if (lista != null && lista.isEmpty()) {
+
 			lista.add(new Perro("Bubba"));
 			lista.add(new Perro("Laika"));
 			lista.add(new Perro("Rintintin"));
 			lista.add(new Perro("goffy"));
 		}
-		
+
 		return lista;
 	}
 

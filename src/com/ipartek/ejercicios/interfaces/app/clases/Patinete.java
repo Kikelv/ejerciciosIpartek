@@ -2,7 +2,7 @@ package com.ipartek.ejercicios.interfaces.app.clases;
 
 import com.ipartek.ejercicios.interfaces.app.interfaces.Vehiculo;
 
-public class Patinete implements Vehiculo {
+public class Patinete implements Vehiculo, AutoCloseable {
 
 	protected static int velocidadActual = 0;
 	protected static boolean estaArrancado = false;
@@ -72,4 +72,10 @@ public class Patinete implements Vehiculo {
 		return "“Soy un patinete, estoy " + estado + " y mi velocidad es de " + velocidad + " Km/h";
 	}
 // TODO crear lo mismo para bici y coche
+
+	@Override
+	public void close() throws Exception {
+		// TODO Auto-generated method stub
+
+	}
 }
