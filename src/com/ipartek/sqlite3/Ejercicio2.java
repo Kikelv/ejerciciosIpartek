@@ -11,9 +11,9 @@ public class Ejercicio2 {
 		PerroDAOSqlite dao = new PerroDAOSqlite();
 
 		System.out.println(dao.recuperar(1));
-		System.out.println(dao.recuperar(145));
+		// System.out.println(dao.recuperar(145));
 
-		Perro pNuevo = new Perro("gfg", "callejera", 4);
+		Perro pNuevo = new Perro("dthhjh");
 		try {
 			dao.crear(pNuevo); // insert
 		} catch (Exception e) {
