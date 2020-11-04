@@ -3,7 +3,7 @@ package com.ipartek.apps;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.ipartek.modelo.PerroDAOSqlite;
+import com.ipartek.modelo.PerroDAOArrayList;
 import com.ipartek.modelo.PerroDao;
 import com.ipartek.pojo.Perro;
 
@@ -11,13 +11,20 @@ public class AppPerrera {
 
 	// variables globales para esta Clase
 	static private Scanner sc = null;
-	static private PerroDao modelo = new PerroDAOSqlite();
+
+	// cuando usamos un patron singleton, el constructor es privado
+	// static private PerroDao modelo = new PerroDAOSqlite();
+	// deberemos usar el metodo getInstance();
+	// static private PerroDao modelo = PerroDAOSqlite.getInstance();
+	static private PerroDao modelo = PerroDAOArrayList.getInstance();
+
 	static private String opcion = ""; // opcion seleccionada en el menu por el usuario
 
 	// opciones del menu
 	static final private String OP_LISTAR = "1";
 	static final private String OP_CREAR = "2";
 	static final private String OP_ELIMINAR = "3";
+	static final private String OP_MODIFICAR = "4";
 	static final private String OP_SALIR = "s";
 
 	public static void main(String[] args) {
@@ -38,6 +45,14 @@ public class AppPerrera {
 				crear();
 				break;
 
+			case OP_MODIFICAR:
+				modifcar();
+				break;
+
+			case OP_ELIMINAR:
+				eliminar();
+				break;
+
 			case OP_SALIR:
 				salir = true;
 				System.out.println("***********  ADIOS, nos vemos pronto   **************");
@@ -53,6 +68,95 @@ public class AppPerrera {
 		sc.close();
 
 	}// main
+
+	private static void modifcar() {
+
+		System.out.println("Dime el ID del perro a modificar");
+		int id = Integer.parseInt(sc.nextLine());
+		Perro perro = modelo.recuperar(id);
+
+		if (perro == null) {
+			System.out.println("*** Lo sentimos pero no existe perro con id " + id);
+		} else {
+
+			// pedir datos
+			System.out.println("Escribe el nuevo campo si quieres cambiar o enter para dejarlo como estaba");
+
+			System.out.printf("nombre[%s] \n", perro.getNombre());
+			String nombre = sc.nextLine();
+
+			System.out.printf("raza[%s] \n", perro.getRaza());
+			String raza = sc.nextLine();
+
+			// crear nuevo perro con los datos
+			Perro pModificar = new Perro();
+			pModificar.setId(perro.getId());
+			pModificar.setNombre(("".equals(nombre)) ? perro.getNombre() : nombre);
+			pModificar.setRaza(("".equals(raza)) ? perro.getRaza() : raza);
+
+			// llamar al modelo
+			try {
+				modelo.modificar(pModificar);
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+
+		}
+
+	}
+
+	private static void eliminar() {
+
+		boolean flag = true;
+		int id = 0;
+		Perro pEliminar = null;
+
+		// buscar perro por id
+		do {
+			System.out.println("Dime el ID del perro para eliminar:");
+			id = Integer.parseInt(sc.nextLine());
+
+			pEliminar = modelo.recuperar(id);
+			if (pEliminar == null) {
+				System.out.println("*Lo sentimos pero no existe ese perro");
+			} else {
+				flag = false;
+			}
+
+		} while (flag);
+
+		flag = true;
+		// pedir confirmacion de nombre para eliminar
+		do {
+			System.out.printf("Por favor escribe [%s] para eliminar o \"s\" para [S]alir\n", pEliminar.getNombre());
+			String nombre = sc.nextLine();
+
+			if (OP_SALIR.equalsIgnoreCase(nombre)) {
+				break; // salimos del bucle
+
+			} else { // comprobar nombre
+
+				if (pEliminar.getNombre().equalsIgnoreCase(nombre)) {
+
+					try {
+						modelo.eliminar(id);
+						flag = false;
+						System.out.println("Hemos dado de baja al perro");
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+				} else {
+					System.out.println("**No coincide el nombre**");
+				}
+			}
+
+		} while (flag);
+
+	}
 
 	private static void crear() {
 
@@ -108,11 +212,11 @@ public class AppPerrera {
 
 	private static void listar() {
 
-		// TODO ver como dar una fixed lenght al String para nombre
 		ArrayList<Perro> perros = modelo.listar();
 		for (Perro perro : perros) {
-			System.out.println(String.format("%15s [%s]  %4s Kg  %13s %s", perro.getNombre(), perro.getRaza(),
-					perro.getPeso(), (perro.isVacunado()) ? "vacunado" : "*Sin Vacunar*", perro.getHistoria()));
+			System.out.println(
+					String.format("%3s %-15s %-15s  %4s Kg  %13s %s", perro.getId(), perro.getNombre(), perro.getRaza(),
+							perro.getPeso(), (perro.isVacunado()) ? "vacunado" : "*Sin Vacunar*", perro.getHistoria()));
 		}
 
 	}
@@ -128,6 +232,7 @@ public class AppPerrera {
 		System.out.println(" " + OP_LISTAR + ".- Listar todos los perros");
 		System.out.println(" " + OP_CREAR + ".- Crear un perro");
 		System.out.println(" " + OP_ELIMINAR + ".- Dar de baja un Perro");
+		System.out.println(" " + OP_MODIFICAR + ".- Editar un Perro");
 		System.out.println(" etc etc ...");
 		System.out.println(" ");
 		System.out.println(" " + OP_SALIR + " - Salir");

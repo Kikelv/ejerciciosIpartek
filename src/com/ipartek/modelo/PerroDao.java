@@ -10,7 +10,7 @@ import com.ipartek.pojo.Perro;
  * @author ur00
  *
  */
-public interface PerroDao {
+public interface PerroDao extends IDao<Perro> {
 
 	/**
 	 * lista perros
@@ -23,7 +23,7 @@ public interface PerroDao {
 	 * Recupera el detalle de un Perro
 	 * 
 	 * @param id identificador
-	 * @return Perro con susa datos o null si no encuentra por su id
+	 * @return Perro con sus datos o null si no encuentra por su id
 	 */
 	Perro recuperar(int id);
 
