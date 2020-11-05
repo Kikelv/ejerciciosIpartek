@@ -1,6 +1,6 @@
 package com.ipartek.actividades.actividad3.pojo;
 
-public class Libro {
+public class Libro implements Comparable<Libro> {
 
 	private int id;
 	private String nombre;
@@ -46,6 +46,12 @@ public class Libro {
 	@Override
 	public String toString() {
 		return id + ") " + nombre + ", número de páginas: " + paginas;
+	}
+
+	@Override
+	public int compareTo(Libro o) {
+		return this.nombre.compareTo(o.nombre);
+		// return this.paginas - o.paginas;
 	}
 
 }

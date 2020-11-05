@@ -1,7 +1,7 @@
 package com.ipartek.actividades.actividad3;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -17,7 +17,10 @@ import com.ipartek.actividades.actividad3.pojo.Libro;
  */
 public class ImplLibroDAO implements ILibroDao {
 
-	private HashMap<Integer, Libro> hmLibros = new HashMap<Integer, Libro>();
+	// HASHMAP - Es como ponerle un índice a un arraylis. Sirve para no tener que
+	// recorrer todo el array cuando quiera buscar un valor
+	private static HashMap<Integer, Libro> hmLibros;
+	private static ImplLibroDAO INSTANCE = null;
 	private int indice = 0;
 
 	// Insertar valores "key"-"value" al HashMap
@@ -31,10 +34,30 @@ public class ImplLibroDAO implements ILibroDao {
 		indice = 4;
 	}
 
+	// PATRÓN SINGLETON
+
+	public static synchronized ImplLibroDAO getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new ImplLibroDAO();
+		}
+		return INSTANCE;
+	}
+
 	@Override
 	public List<Libro> getAll() {
 
-		return new ArrayList<>(hmLibros.values());
+		// return new ArrayList<>(hmLibros.values()); ASÍ ES SIN ORDENACIÓN
+
+		ArrayList<Libro> libros = new ArrayList<Libro>(hmLibros.values());
+
+		// ordenacion por defecto que hemos definido en el Libro implements Comparable
+		Collections.sort(libros);
+
+		// ordenacion por paginas que hemos creado una nueva Clase que implements
+		// Comparator<Libro>
+		// libros.sort(new LibroComparatorPaginas());
+
+		return libros;
 
 	}
 
@@ -52,27 +75,30 @@ public class ImplLibroDAO implements ILibroDao {
 
 	@Override
 	public boolean insert(Libro l) {
-		Collection<Libro> valores = hmLibros.values();
+
+		boolean resultado = false;
 		boolean encontrado = false;
+		String nombreLibro = l.getNombre();
 
-		// necesito comprobar si ya existe el libro
-		for (Iterator<Integer> it = hmLibros.keySet().iterator(); it.hasNext();) {
-			int key = (Integer) it.next();
-			Libro value = hmLibros.get(key);
+		// buscar si existe el nombre en hashmap, recorriendo uno a uno todos los libros
+		for (Iterator<Libro> iterator = hmLibros.values().iterator(); iterator.hasNext();) {
 
-			if (l.getNombre().equalsIgnoreCase(value.getNombre())) {
+			Libro libroIteracion = iterator.next();
+			if (nombreLibro.equalsIgnoreCase(libroIteracion.getNombre())) {
 				encontrado = true;
-
 				break;
 			}
+
+		} // for
+
+		// si no existe, insertarlo y actulizar id
+		if (!encontrado) {
+			l.setId(indice); // setear el id en el objeto
+			hmLibros.put(indice, l); // guardar objeto en hasmap
+			indice++; // aqctualizar el indice para la sigueinte insercción
+			resultado = true;
 		}
 
-		if (encontrado == false) {
-			l.setId(indice);
-			indice++;
-			hmLibros.put(indice, l);
-		}
-
-		return false;
+		return resultado;
 	}
 }

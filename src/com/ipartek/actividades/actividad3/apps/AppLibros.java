@@ -1,6 +1,5 @@
 package com.ipartek.actividades.actividad3.apps;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.ipartek.actividades.actividad3.ImplLibroDAO;
@@ -95,9 +94,12 @@ public class AppLibros extends AppGestion {
 	}
 
 	protected static void listar() {
-		ArrayList<Libro> libros = (ArrayList<Libro>) modelo.getAll();
-		for (Libro libro : libros) {
-			System.out.println(libro + "\n");
+		/*
+		 * ArrayList<Libro> libros = (ArrayList<Libro>) modelo.getAll(); for (Libro
+		 * libro : libros) { System.out.println(libro + "\n"); }
+		 */
+		for (Libro l : modelo.getAll()) {
+			System.out.printf("[%s] %-35s %4s paginas \n", l.getId(), l.getNombre(), l.getPaginas());
 		}
 
 		pintarMenu("libro"); // pinto el menú para darle las opciones al usuario
