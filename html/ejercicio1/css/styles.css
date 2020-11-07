@@ -15,7 +15,6 @@ Media queries
 
 */
 
-
 * {
     margin: 0;
     padding: 0;
@@ -39,6 +38,7 @@ body {
 }
 
 /*Hacer que los iframes no tengan el borde predeterminado que pone el navegador*/
+
 iframe {
     border: 0;
 }
@@ -54,17 +54,81 @@ a {
     outline-width: thin;
 }
 
-ul,
-ol,
-li {
+ul, ol, li {
     list-style: none;
 }
-header{
-    background-color:#202020;
+
+/** ------- NAV ----------**/
+
+nav li {
+    border: 1px #202020 solid;
+    background-color: wheat;
+    width: 25%;
+}
+
+nav>ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    display: block;
+    width: 100%;
+    background-color: red;
+    color: white;
+}
+
+nav a:hover {
+    display: block;
+    width: 100%;
+    background-color: #202020;
+    color: white;
+}
+
+header {
+    background-color: #202020;
     color: white;
     text-align: center;
 }
-nav ul{
+
+h1, h2, p, article {
+    padding: 2%;
+}
+
+h1, h2, article {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
+img{
+    border: 2px solid black;
+    margin: 2%;
+}
+section {
     display: flex;
+}
+
+footer {
+    display: flex;
+    background-color: #202020;
+    color: white;
+}
+td li{
+    padding: 3% 10%;
+}
+table {
+    width: 100%;
     justify-content: space-between;
+}
+
+#logos {
+    display: flex;
+    justify-content: space-around;
+}
+
+#enlaces>a {
+    margin: 5%;
+    color: white;
 }
