@@ -1,0 +1,44 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    /*hacemos que las cajas se midan desde fuera*/
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 0.625em;
+    /*hace que el scroll vaya suave*/
+    scroll-behavior: smooth;
+}
+
+
+body {
+    /* El tamaño de las fuentes debe ser expresada en rem. Al tener configurado html con 0.625em esto nos da un valor de 16px */
+    /* Modificar para configurar las características de fuente, color y fondo */
+    font-size: 1.8rem;
+    font-family: sans-serif;
+    color: black;
+    background-color: gainsboro;
+}
+
+/*Hacer que los iframes no tengan el borde predeterminado que pone el navegador*/
+
+iframe {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+:focus {
+    outline-color: #ccc;
+    outline-offset: 1px;
+    outline-style: dotted;
+    outline-width: thin;
+}
+
+ul, ol, li {
+    list-style: none;
+}

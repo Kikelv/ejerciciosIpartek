@@ -1,0 +1,101 @@
+/* ÍNDICE 
+
+RESET 
+General
+Container
+Header
+Nav
+Main menu
+Main
+Articles
+Sections
+Asides
+Footer
+Media queries
+
+*/
+
+@import '/css/reset.css';
+
+:root{
+    --rojoMarvel: #e62429;
+}
+
+
+/** ------- NAV ----------**/
+
+nav li {
+    border: 1px #202020 solid;
+    background-color: wheat;
+    width: 25%;
+}
+
+nav>ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    display: block;
+    width: 100%;
+    background-color: var(--rojoMarvel);
+    color: white;
+}
+
+nav a:hover {
+    display: block;
+    width: 100%;
+    background-color: #202020;
+    color: white;
+}
+
+header {
+    /* background-color: #202020; */
+    color: white;
+    text-align: center;
+    background-image: -webkit-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
+    background-image: -o-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
+    background-image: -moz-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
+}
+
+h1, h2, p, article {
+    padding: 2%;
+}
+
+h1, h2, article {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
+img{
+    border: 2px solid black;
+    margin: 2%;
+}
+section {
+    display: flex;
+}
+
+footer {
+    display: flex;
+    background-color: #202020;
+    color: white;
+}
+td li{
+    padding: 3% 10%;
+}
+table {
+    width: 100%;
+    justify-content: space-between;
+}
+
+#logos {
+    display: flex;
+    justify-content: space-around;
+}
+
+#enlaces>a {
+    margin: 5%;
+    color: white;
+}

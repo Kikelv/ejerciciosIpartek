@@ -15,48 +15,12 @@ Media queries
 
 */
 
-* {
-    margin: 0;
-    padding: 0;
-    /*hacemos que las cajas se midan desde fuera*/
-    box-sizing: border-box;
+@import '/css/reset.css';
+
+:root{
+    --rojoMarvel: #e62429;
 }
 
-html {
-    font-size: 0.625em;
-    /*hace que el scroll vaya suave*/
-    scroll-behavior: smooth;
-}
-
-body {
-    /* El tamaño de las fuentes debe ser expresada en rem. Al tener configurado html con 0.625em esto nos da un valor de 16px */
-    /* Modificar para configurar las características de fuente, color y fondo */
-    font-size: 1.8rem;
-    font-family: sans-serif;
-    color: black;
-    background-color: gainsboro;
-}
-
-/*Hacer que los iframes no tengan el borde predeterminado que pone el navegador*/
-
-iframe {
-    border: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-:focus {
-    outline-color: #ccc;
-    outline-offset: 1px;
-    outline-style: dotted;
-    outline-width: thin;
-}
-
-ul, ol, li {
-    list-style: none;
-}
 
 /** ------- NAV ----------**/
 
@@ -74,7 +38,7 @@ nav>ul {
 nav a {
     display: block;
     width: 100%;
-    background-color: red;
+    background-color: var(--rojoMarvel);
     color: white;
 }
 
@@ -86,9 +50,12 @@ nav a:hover {
 }
 
 header {
-    background-color: #202020;
+    /* background-color: #202020; */
     color: white;
     text-align: center;
+    background-image: -webkit-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
+    background-image: -o-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
+    background-image: -moz-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
 }
 
 h1, h2, p, article {
