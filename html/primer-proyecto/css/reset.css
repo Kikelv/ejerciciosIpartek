@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -12,14 +11,17 @@ html {
     scroll-behavior: smooth;
 }
 
-
 body {
     /* El tamaño de las fuentes debe ser expresada en rem. Al tener configurado html con 0.625em esto nos da un valor de 16px */
     /* Modificar para configurar las características de fuente, color y fondo */
-    font-size: 1.8rem;
-    font-family: sans-serif;
-    color: black;
     background-color: gainsboro;
+    font-weight: 400;
+    text-align: justify;
+    overflow-wrap: break-word;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #212529;
 }
 
 /*Hacer que los iframes no tengan el borde predeterminado que pone el navegador*/

@@ -16,11 +16,9 @@ Media queries
 */
 
 @import '/css/reset.css';
-
-:root{
+:root {
     --rojoMarvel: #e62429;
 }
-
 
 /** ------- NAV ----------**/
 
@@ -53,9 +51,19 @@ header {
     /* background-color: #202020; */
     color: white;
     text-align: center;
-    background-image: -webkit-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
-    background-image: -o-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
-    background-image: -moz-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
+    background-image: -webkit-linear-gradient(top, black 10%, var(--rojoMarvel) 90%);
+    background-image: -o-linear-gradient(top, black 10%, var(--rojoMarvel) 90%);
+    background-image: -moz-linear-gradient(top, black 10%, var(--rojoMarvel) 90%);
+}
+
+h1 {
+    color: #2f363c;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -.015em;
+    line-height: 1.04;
+    margin-bottom: 0;
+    word-spacing: -.02em;
 }
 
 h1, h2, p, article {
@@ -69,10 +77,12 @@ h1, h2, article {
 p {
     text-align: justify;
 }
-img{
+
+img {
     border: 2px solid black;
     margin: 2%;
 }
+
 section {
     display: flex;
 }
@@ -82,9 +92,11 @@ footer {
     background-color: #202020;
     color: white;
 }
-td li{
+
+td li {
     padding: 3% 10%;
 }
+
 table {
     width: 100%;
     justify-content: space-between;

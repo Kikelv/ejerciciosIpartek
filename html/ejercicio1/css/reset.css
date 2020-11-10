@@ -20,6 +20,7 @@ body {
     font-family: sans-serif;
     color: black;
     background-color: gainsboro;
+    position: relative;
 }
 
 /*Hacer que los iframes no tengan el borde predeterminado que pone el navegador*/

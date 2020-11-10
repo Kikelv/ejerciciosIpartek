@@ -19,15 +19,23 @@ Media queries
 
 :root{
     --rojoMarvel: #e62429;
+    --negro: black;
+    --negroMarvel: #202020;
 }
 
-
+nav{
+    position: sticky;
+    top: 0px;
+    text-align: center;
+    box-shadow: 0px 5px 10px 0px;
+}
 /** ------- NAV ----------**/
 
 nav li {
-    border: 1px #202020 solid;
+    border: 1px var(--negroMarvel) solid;
     background-color: wheat;
     width: 25%;
+    
 }
 
 nav>ul {
@@ -40,6 +48,7 @@ nav a {
     width: 100%;
     background-color: var(--rojoMarvel);
     color: white;
+    padding: 2%;
 }
 
 nav a:hover {
@@ -53,9 +62,11 @@ header {
     /* background-color: #202020; */
     color: white;
     text-align: center;
-    background-image: -webkit-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
-    background-image: -o-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
-    background-image: -moz-linear-gradient(top,black 10%, var(--rojoMarvel) 90%);
+    background-image: -webkit-linear-gradient(top,var(--negroMarvel) 10%, var(--rojoMarvel) 90%);
+    background-image: -o-linear-gradient(top,var(--negroMarvel) 10%, var(--rojoMarvel) 90%);
+    background-image: -moz-linear-gradient(top,var(--negroMarvel) 10%, var(--rojoMarvel) 90%);
+    width: 100%;
+    box-shadow: 0px 0px 5px var(--negro);   
 }
 
 h1, h2, p, article {
@@ -70,32 +81,61 @@ p {
     text-align: justify;
 }
 img{
-    border: 2px solid black;
+    border: 2px solid var(--negro);
     margin: 2%;
+    box-shadow: 5px 5px 10px var(--negro);
 }
 section {
     display: flex;
 }
-
+article{
+    min-width: 30%;
+}
+.personajes{
+    border-radius: 15px;
+    background-color: #4684e2;
+    max-width: 75%;
+    margin: auto;
+    padding: 5%;
+    box-shadow: 5px 5px 5px;
+}
+.personajes li{
+    padding: 5%;
+}
+.pic{
+    border-radius: 50%;
+   
+}
 footer {
     display: flex;
-    background-color: #202020;
+    background-color: var(--negroMarvel);
     color: white;
-}
-td li{
-    padding: 3% 10%;
-}
-table {
     width: 100%;
     justify-content: space-between;
+    background-image: -webkit-linear-gradient(top,var(--rojoMarvel) 10%, var(--negroMarvel) 90%);
+    background-image: -o-linear-gradient(top,var(--rojoMarvel) 10%, var(--negroMarvel) 90%);
+    background-image: -moz-linear-gradient(top,var(--rojoMarvel) 10%, var(--negroMarvel) 90%);
+}
+footer ul{
+    width: 30%;
+}
+footer li{
+    padding: 3% 10%;
+    width: 100%;
 }
 
 #logos {
     display: flex;
     justify-content: space-around;
+    box-shadow: none;  
+    width: 30%;
 }
-
-#enlaces>a {
+#logos img{
+    box-shadow: none; 
+    border: none;
+    width: 48%;
+}
+#enlaces li>a {
     margin: 5%;
     color: white;
 }
