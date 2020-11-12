@@ -22,6 +22,10 @@ Media queries
     --negro: black;
     --azul: #4684e2;
     --amarillo: rgb(252, 224, 64);
+    --blanco: rgb(255, 255, 255);
+    --breakpoint-xs: 425px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1025px;
 }
 
 nav {
@@ -35,12 +39,12 @@ nav {
 
 nav li {
     border: 1px var(--color-accent) solid;
-    background-color: wheat;
-    width: 25%;
+    background-color: var(--color-primary);
+    width: 100%;
 }
 
 nav>ul {
-    display: flex;
+    display: block;
     justify-content: space-between;
 }
 
@@ -48,7 +52,7 @@ nav a {
     display: block;
     width: 100%;
     background-color: var(--color-primary);
-    color: white;
+    color: var(--blanco);
     padding: 2%;
 }
 
@@ -56,13 +60,13 @@ nav a:hover {
     display: block;
     width: 100%;
     background-color: var(--color-accent);
-    color: white;
+    color: var(--blanco);
     font-weight: bold;
 }
 
 header {
     /* background-color: #202020; */
-    color: white;
+    color: var(--blanco);
     text-align: center;
     background-image: -webkit-linear-gradient(top, var(--color-accent) 10%, var(--color-primary) 90%);
     background-image: -o-linear-gradient(top, var(--color-accent) 10%, var(--color-primary) 90%);
@@ -74,9 +78,20 @@ header {
 h1, h2, p, article {
     padding: 2%;
 }
-h2{
+/*copio la regla de css-tricks para el gradiente en las letras del h2*/
+h2 {
     font-size: 4rem;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    font-weight: 700;
+    padding-bottom: .15rem;
 }
+
+
+
 h1, h2, article {
     text-align: center;
 }
@@ -86,50 +101,136 @@ p {
 }
 
 .efecto {
-    padding: 10px;
+    background-image: url('/img/batman-portada.jpg');
     background-color: var(--color-primary);
-    animation: example 4s infinite;
+    /* animation: example 4s infinite;*/
     border-radius: 3px;
+    overflow: hidden;
+    margin: auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 500px;
 }
 
+.articulo-batman {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    opacity: 0;
+    background-color: rgba(1, 40, 99, 0.699);
+    position: relative;
+    min-height: 500px;
+    color: var(--blanco);
+}
+
+.efecto:hover article {
+    opacity: 1;
+    background-color: rgba(1, 40, 99, 0.699);
+    color: var(--blanco);
+    transition: 1s;
+    min-height: 500px;
+}
+
+/*
 @keyframes example {
-    0%   {top: 0px; left: 0px; background: var(--color-primary);}
-  25%  {top: 0px; left: 100px; background: var(--color-accent);}
-  50%  {top: 100px; left: 100px; background: gray;}
-  75%  {top: 100px; left: 0px; background: orange;}
-  100% {top: 0px; left: 0px; background: var(--color-primary);}
+    0% {
+        top: 0px;
+        left: 0px;
+        background: var(--color-primary);
+    }
+    25% {
+        top: 0px;
+        left: 100px;
+        background: var(--color-accent);
+    }
+    50% {
+        top: 100px;
+        left: 100px;
+        background: gray;
+    }
+    75% {
+        top: 100px;
+        left: 0px;
+        background: orange;
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+        background: var(--color-primary);
+    }
+}
+*/
+
+.boton-more {
+    padding: 3px;
+    border: 1px solid var(--blanco);
+    border-radius: 8px;
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 1.8rem;
+    background-color: transparent;
+}
+
+.boton-more:hover {
+    padding: 3px;
+    border: 1px solid var(--blanco);
+    border-radius: 8px;
+    color: var(--azul);
+    font-weight: bold;
+    font-size: 1.8rem;
+    background-color: var(--blanco);
 }
 
 img {
     width: 100%;
 }
 
-
+.activo {
+    text-transform: uppercase;
+    font-weight: bold;
+}
 
 section {
-    display: flex;
+    display: block;
 }
 
 article {
     min-width: 30%;
 }
-#superlogo{
+
+#superlogo {
     width: 100px;
     float: left;
     margin: 2%;
     filter: drop-shadow(5px 5px 5px var(--azul));
 }
+
+#superlogo:hover {
+    transform: rotate(360deg);
+    transform-origin: center;
+    transition: 2s ease all;
+}
+
 .personajes {
-    border-radius: 15px;
+    border: solid var(--color-accent);
+    width: 150px;
+    height: 300px;
     background-color: var(--azul);
     max-width: 75%;
     margin: 40% auto;
     padding: 5%;
     box-shadow: 5px 5px 5px;
+    overflow: scroll;
+    text-align: left;
 }
 
 .personajes li {
     padding: 5%;
+    color: var(--blanco);
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 2.5rem;
 }
 
 .pic {
@@ -137,41 +238,40 @@ article {
     margin: 5%;
     filter: drop-shadow(5px 5px 5px var(--color-accent));
 }
+
 .pic:hover {
     transition: max-width 1s;
     max-width: 250px;
 }
-.batman{
+
+.batman {
     width: 25%;
     margin-top: 5%;
 }
-.batman:hover{
+
+.batman:hover {
     width: 65%;
     transform: rotateY(360deg);
     transform-origin: center;
-    transition:  2s ease all;
-}
-td{
-    width: 250px;
-}
-footer {
-    display: flex;
-    background-color: var(--color-accent);
-    color: white;
-    width: 100%;
-    justify-content: space-between;
-    background-image: -webkit-linear-gradient(top, var(--color-primary) 10%, var(--color-accent) 90%);
-    background-image: -o-linear-gradient(top, var(--color-primary) 10%, var(--color-accent) 90%);
-    background-image: -moz-linear-gradient(top, var(--color-primary) 10%, var(--color-accent) 90%);
+    transition: 2s ease all;
 }
 
-footer ul {
-    width: 30%;
+.tabla {
+    width: 85%;
+    margin: 2% auto;
 }
 
-footer li {
-    padding: 3% 10%;
-    width: 100%;
+table {
+    width: 80%;
+    margin: auto;
+}
+
+td img {
+    box-shadow: 5px 5px 5px var(--color-accent);
+}
+
+td {
+    text-align: center;
 }
 
 #logos {
@@ -189,5 +289,110 @@ footer li {
 
 #enlaces li>a {
     margin: 5%;
-    color: white;
+    color: var(--blanco);
+}
+
+p>a {
+    color: var(--blanco);
+    font-weight: bold;
+}
+
+.sobremi {
+    padding: 5%;
+    margin: 5%;
+    background-color: var(--azul);
+    border-radius: 30px;
+}
+
+.sobremi>h3 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+footer {
+    border-top: 1px solid var(--color-accent);
+    display: flex;
+    background-color: var(--color-accent);
+    color: var(--blanco);
+    width: 100%;
+    justify-content: space-between;
+    background-image: -webkit-linear-gradient(top, var(--color-primary) 10%, var(--color-accent) 90%);
+    background-image: -o-linear-gradient(top, var(--color-primary) 10%, var(--color-accent) 90%);
+    background-image: -moz-linear-gradient(top, var(--color-primary) 10%, var(--color-accent) 90%);
+}
+
+footer ul {
+    width: 30%;
+}
+
+footer li {
+    padding: 3% 10%;
+    width: 100%;
+}
+
+@media (min-width: 765px) {
+    nav>ul {
+        display: flex;
+        justify-content: space-between;
+    }
+    nav a {
+        display: block;
+        width: 100%;
+        background-color: var(--color-primary);
+        color: var(--blanco);
+        padding: 2%;
+    }
+    nav a:hover {
+        display: block;
+        width: 100%;
+        background-color: var(--color-accent);
+        color: var(--blanco);
+        font-weight: bold;
+    }
+    nav li {
+        border: 1px var(--color-accent) solid;
+        background-color: var(--color-primary);
+        width: 25%;
+    }
+    section {
+        display: flex;
+    }
+    .efecto {
+        background-image: url('/img/batman-portada.jpg');
+        background-color: var(--color-primary);
+        /* animation: example 4s infinite;*/
+        border-radius: 3px;
+        overflow: hidden;
+        margin: auto;
+    }
+    .articulo-batman {
+        opacity: 1;
+        font-size: 2.5rem;
+        background-color: rgba(1, 40, 99, 0.699);
+        position: relative;
+        color: var(--blanco);
+        bottom: -85%;
+    }
+    .efecto:hover article {
+        font-size: 2.5rem;
+        background-color: rgba(1, 40, 99, 0.699);
+        position: relative;
+        color: var(--blanco);
+        transition: 1.5s;
+        bottom: -55%;
+    }
+    .articulo-batman {
+        opacity: 0;
+        background-color: rgba(1, 40, 99, 0.699);
+        position: relative;
+        height: 100%;
+        color: var(--blanco);
+        padding-bottom: 200px;
+    }
+    .efecto:hover article {
+        opacity: 1;
+        background-color: rgba(1, 40, 99, 0.699);
+        color: var(--blanco);
+        transition: 1s;
+        height: 100%;
+    }
 }

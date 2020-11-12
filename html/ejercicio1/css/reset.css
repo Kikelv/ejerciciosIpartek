@@ -9,6 +9,7 @@ html {
     font-size: 0.625em;
     /*hace que el scroll vaya suave*/
     scroll-behavior: smooth;
+    scrollbar-color: #e62429  #202020;
 }
 
 body {
